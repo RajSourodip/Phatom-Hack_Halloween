@@ -1,0 +1,1131 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Montserrat:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(185, 100%, 48%);
+  --white-color: hsl(0, 0%, 100%);
+  --black-color: hsl(222, 100%, 2%);
+  --radial-color: radial-gradient(52% 52% at 50% 50%,
+                       hsl(202, 90%, 38%) 0%,
+                       hsl(222, 100%, 6%) 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --second-font: "Jolly Lodger", cursive;
+  --biggest-font-size: 3rem;
+  --big-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 9rem;
+    --big-font-size: 3.5rem;
+    --h2-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: var(--z-fixed);
+  transition: background-color .3s;
+}
+
+.nav{
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo{
+  color: var(--white-color);
+  font-family: var(--second-font);
+  font-size: var(--h2-font-size);
+  transition: text-shadow .3s;
+}
+
+.nav__logo:hover{
+  text-shadow: 0 2px 8px var(--first-color);
+}
+
+.nav__toggle,
+.nav__close{
+  display: flex;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1150px){
+.nav__menu{
+  position: fixed;
+  top: -100%;
+  left: 0;
+  background-color: var(--black-color);
+  width: 100%;
+  padding-block: 5rem 4.5rem;
+  transition: top .4s;
+}
+}
+  
+.nav__list{
+  display: flex;
+  flex-direction: column;
+  text-align: centre;
+  row-gap: 3rem;
+}
+
+.nav__link{
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+  transition: text-shadow .3s;
+}
+
+.nav__link:hover{
+  text-shadow: 0 2px 8px var(--first-color);
+}
+.nav__close{
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+/* Show menu */
+.show-menu{
+  top: 0;
+}
+
+/* Change background header */
+.bg-header{
+  background-color: var(--black-color);
+}
+
+/*=============== HOME ===============*/
+.home{
+  position: relative;
+  height: 100vh;
+  background-color: var(--black-color);
+}
+
+.home__container{
+  position: relative;
+  height: 70%;
+  background: var(--radial-color);
+  display: grid;
+  justify-items: centre;
+  overflow: hidden;
+}
+
+.home__container img{
+  position: absolute;
+}
+
+.home__grass,
+.home__pumpkin{
+  bottom: 0;
+}
+
+.home__stone{
+  bottom: -.5rem;
+  width: 470px;
+}
+
+.home__tree{
+  bottom: .5rem;
+  width: 470px;
+}
+.home__moon{
+  bottom: 2rem;
+  width: 590px;
+}
+
+.home__stone,
+.home__tree,
+.home__moon{
+  max-width: initial;
+}
+
+.home__shadow,
+.home__points{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: centre;
+}
+
+.home__shadow{
+  mix-blend-mode: overlay;
+}
+
+.home__titles{
+  position: absolute;
+  left: 445px;
+  bottom: 0px;
+  text-align: center;
+}
+.home__title{
+  position: relative;
+  top: 50px;
+}
+.home__subtitle{
+  position: relative;
+  top: 50px;
+}
+
+.home__subtitle,
+.home__title{
+  color: var(--black-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-regular);
+  text-shadow: 0 2px 8px var(--first-color);
+}
+
+.home__subtitle{
+  font-size: var(--big-font-size);
+}
+
+.home__title{
+  font-size: var(--biggest-font-size);
+}
+
+.home__data{
+  position: absolute;
+  bottom: 4rem;
+  text-align: center;
+  margin-inline: 1.5rem;
+}
+
+.home__description{
+  margin-bottom: 2rem;
+}
+
+.home__button{
+  display: inline-grid;
+  position: relative;
+  place-items: center;
+  transition: filter .4s;
+}
+
+.home__button span{
+  position: absolute;
+  color: var(--white-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+}
+
+.home__button:hovar{
+  filter: drop-shadow(0 4px 24px hsla(185, 100%, 48%, .6));
+}
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 330px){
+  .container{
+    margin-inline: 1rem;
+  }
+
+  .home__stone{
+    width: 370px;
+  }
+  .home__tree{
+    width: 400px;
+  }
+  .home__moon{
+    width: 520px;
+  }
+  .home__titles{
+    bottom: 9rem;
+  }
+  .home__data{
+    bottom: 2rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px){
+  .home__container{
+    height: 85%;
+  }
+
+  .home__grass,
+  .home__stone,
+  .home__tree,
+  .home__moon{
+    width: 100%;
+  }
+  .home__moon{
+    bottom: 3rem;
+  }
+  .home__titles{
+    bottom: 13rem;
+  }
+  .home__data{
+    bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .home__titles{
+    bottom: 16rem;
+  }
+  .home__subtitle{
+    font-size: 2.5rem;
+  }
+  .home__title{
+    font-size: 4.5rem;
+  }
+}
+/* For large devices */
+@media screen and (min-width: 968px){
+  .home__container{
+    height: 90%;
+  }
+  .home__moon{
+    bottom: 0;
+  }
+  .home__titles{
+    bottom: 20rem;
+  }
+  .home__data{
+    max-width: 768px;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+  }
+}
+@media screen and (min-width: 1150px){
+  .container{
+    margin-inline: auto;
+  }
+  .nav{
+    height: calc(var(--header-height) + 2rem);
+  }
+  .nav__toggle,
+  .nav__close{
+    display: none;
+  }
+  .nav__list{
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+
+  .home__container{
+    height: 100%;
+  }
+
+  .home__titles{
+    bottom: 25rem;
+  }
+}
+
+@media screen and (min-width: 1400px){
+  .home{
+    height: initial;
+  }
+  .home__container{
+    height: 960px;
+  }
+  .home__tree,
+  .home__moon{
+    bottom: -3rem;
+  }
+  .home__titles{
+    bottom: 31rem;
+  }
+  .home__subtitle{
+    font-size: var(--big-font-size);
+  }
+  .home__title{
+    font-size: var(--biggest-font-size);
+    line-height: 90%;
+  }
+  ::-webkit-scrollbar{
+    width: .6rem;
+    background-color: hsl(202, 16%, 15%);
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color: hsl(202, 16%, 25%));
+  }
+}
+/* For 2K resolutions (2048 x 1152) */
+@media screen and (min-width: 2048px){
+  .home__container{
+    height: 1200px;
+  }
+  .home__titles{
+    bottom: 45rem;
+  }
+}
+/* About Us*/
+ *{
+  padding: 0;
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
+}
+ .about{
+  width: 100%;
+  padding: 78px 0px;
+  background-color: #333232;
+}
+.about img{
+  height: 500px;
+  width: 2500px;
+  border-radius: 12%;
+  border: none;
+  box-shadow: 15px 10px 10px purple;
+  position: relative;
+  left: 930px;
+}
+.about h1{
+  width: 1050px;
+  position: relative;
+  bottom: 180px;
+  right: 200px;
+  color: white;
+  font-size: 40px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  float: right;
+  font-weight: 'Josefin Sans',sans-serif;
+}
+.main3 {
+  width: 3490px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #0e0d0d; 
+  border: 2px solid #ff6f61; 
+  border-radius: 10px; 
+  padding: 20px; 
+  margin-bottom: 20px;
+  background-image: url(https://img.freepik.com/premium-photo/halloween-purple-pumpkins-background_839169-13361.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.about main h1{
+  color: white;
+  font-size: 80px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  top: 20%;
+  float: right;
+}
+.about h5{
+  color: white;
+  position: relative;
+  bottom: 100px;
+  right: 335px;
+  font-size: 30px;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+span{
+  color: #f9004d;
+}
+.about p{
+  color: white;
+  letter-spacing: 1px;
+  line-height: 28px;
+  font-size: 16px;
+  font-family: moneferrat;
+  position: relative;
+  top: 70px;
+  right: 660px;
+  margin-bottom: 45px;
+  text-align: auto;
+}
+button{
+    background: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: 5px solid transparent;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 30px;
+    position: relative;
+    top: 220px;
+    right: 1195px;
+    transition: .4s;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+	  color:#ffffff;
+    animation-name: slideInleft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 2;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    transform: translateX(-150px);
+
+}
+@keyframes slideInleft {
+  from{
+      transform: translateX(-300px);
+  }
+  to{
+      transform: translateX(0);
+  }
+}
+button:hover{
+  background: transparent;
+  border: 2px solid #f9004d;
+  cursor: pointer;
+  } 
+/* For Contact Us */
+ *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+section{
+  padding: 40px 15%;
+}
+.contact{
+  background: #0b0b0b;
+  border: 2px solid #ff6f61;
+  height: 100%;
+  min-height: 100vh;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  align-items: center;
+  grid-gap: 6rem;
+  background-image: url(https://www.lovethegarden.com/sites/default/files/styles/og_image/public/content/articles/UK_community-fun-facts-crazy-facts-about-halloween-pumpkins_main.jpg?itok=c5y6fJX_);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.contact-img img{
+  max-width: 100%;
+  width:990px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 15px 10px 10px red;
+}
+.contact-form h1{
+  font-size: 80px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+span{
+  color:#f9004d;
+}
+.contact-form p{
+  color: white;
+  letter-spacing: 1px;
+  line-height: 26px;
+  font-size: 18px;
+  margin-bottom: 3.8rem;
+}
+.contact-form form{
+  position: relative;
+}
+.contact-form form input,
+form textarea{
+  width: 100%;
+  padding: 17px;
+  border: none;
+  background: #191919;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+  border-radius: 10px;
+}
+.contact-form textarea{
+  resize: none;
+  height: 200px;
+}
+.contact-form form .btn{
+  display: inline-block;
+  background: #f9004d;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  width: 220px;
+  transition: ease .20s;
+  cursor: pointer;
+}
+.contact-form form .btn:hover{
+  border: 2px solid #f9004d;
+  background: transparent;
+  transform: scale(1.1);
+}
+@media (max-width: 1570px){
+  section{
+    padding: 80px 3%;
+    transition: .2s;
+  }
+  .contact-form h1{
+    font-size: 60px;
+  }
+  .contact-form p{
+    margin-bottom: 3rem;
+  }
+}
+@media (max-width: 1090px){
+    .contact{
+      grid-gap: 2rem;
+      transition: .3s;
+    }
+}
+@media (max-width: 1000px){
+  .contact{
+    grid-template-columns: 1fr;
+  }
+  .contact-form{
+    order: 2;
+  }
+  .contact-img img{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+} 
+
+/* For Halloween Recipes*/
+
+ body {
+  font-family: 'Arial', sans-serif;
+  background-color: #0b0a0a;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #0b0a0a;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+  color: #ff6f61;
+}
+
+main {
+  padding: 20px;
+}
+
+.recipe {
+  background-color: #0b0a0a; 
+  border: 2px solid #ff6f61;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-image: url(https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2024-10/Black-Cocoa-Halloween-Cookies_Hero1.jpg?itok=X_uubhmv);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.recipe h2 {
+  color: #ff6f61;
+}
+
+.recipe img {
+  width: 25%;
+  height: 250px;
+  position: relative;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.recipe h3 {
+  color: #ff6f61;
+}
+
+.recipe ul, .recipe ol {
+  margin: 0 0 20px 20px;
+}
+
+.recipe li {
+  margin-bottom: 10px;
+}
+
+/*Recipe-1*/
+.recipe{
+  padding: 50px 0;
+}
+.recipe h1{
+  text-align: left;
+  position: relative;
+  left: 300px;
+  top: 28px;
+  margin-top: auto;
+  font-size: 28px;
+  color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} 
+.sec{
+  background: rgb(14, 13, 13);
+  margin: 10px 10px;
+  width: 30%;
+  border-radius: 10px;
+  position: relative;
+  left: 200px;
+  top: 40px;
+  display: inline-block;
+  margin: 0 auto;
+  column-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  box-shadow: 2px 2px 10px red;
+}
+.card{
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card img{
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card a{
+  margin-top: 150px;
+  position: relative;
+  cursor: pointer;
+}
+.card a{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #ca0f0f;
+  color: #fff;
+  padding: 15px 0;
+  cursor: pointer;
+}
+.card h3{
+  text-align: center;
+  color: white;
+}
+.card ul li{
+  text-align: auto;
+  position: relative;
+  top: 5px;
+  font-size: 14px;
+  font-family: moneferrat;
+}
+
+
+/* Recipe-2*/
+.recipe{
+  padding: 50px 0;
+}
+.recipe h2{
+  text-align: left;
+  position: relative;
+  left: 897px;
+  bottom: 581px;
+  margin-top: auto;
+  font-size: 28px;
+  color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} 
+.sec1{
+  background: rgb(14, 13, 13);
+  margin: 10px 10px;
+  width: 30%;
+  border-radius: 10px;
+  position: relative;
+  bottom: 570px;
+  left: 300px;
+  display: grid;
+  margin: 0 auto;
+  column-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  box-shadow: 2px 2px 10px red;
+}
+.card1{
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card1 a{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #ca0f0f;
+  color: #fff;
+  padding: 15px 0;
+  cursor: pointer;
+}
+.card1 img{
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card1 a{
+  position: relative;
+  cursor: pointer;
+}
+.card1 h3{
+  text-align: center;
+  color: white;
+}
+.card1 ul li{
+  text-align: auto;
+  position: relative;
+  top: 5px;
+  font-size: 14px;
+  font-family: moneferrat;
+}
+
+/* Recipe-3*/
+.recipe{
+  padding: 50px 0;
+}
+.recipe h4{
+  text-align: left;
+  position: relative;
+  left: 623px;
+  bottom: 415px;
+  margin-top: auto;
+  font-size: 28px;
+  color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.sec2{
+  background: rgb(14, 13, 13);
+  margin: 10px 10px;
+  width: 30%;
+  border-radius: 10px;
+  position: relative;
+  bottom: 400px;
+  display: grid;
+  margin: 0 auto;
+  column-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  box-shadow: 2px 2px 10px red;
+}
+.card2{
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card2 a{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #ca0f0f;
+  color: #fff;
+  padding: 15px 0;
+  cursor: pointer;
+}
+.card2 img{
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card2 a{
+  position: relative;
+  margin-top: 150px;
+  cursor: pointer;
+}
+.card2 h3{
+  text-align: center;
+  color: white;
+}
+.card2 ul li{
+  text-align: auto;
+  position: relative;
+  top: 5px;
+  font-size: 14px;
+  font-family: moneferrat;
+}
+
+/* For Halloween Games*/
+
+  body {
+  font-family: 'Arial', sans-serif;
+  background-color: #2e2e2e;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #4a4a4a;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+  color: #ff6f61;
+}
+
+main {
+  padding: 20px;
+}
+
+.activity {
+  background-color: #0e0d0d;
+  border: 2px solid #ff6f61;
+   border-radius: 10px; 
+   padding: 20px; 
+   margin-bottom: 20px; 
+    background-image: url(https://cdn.pixabay.com/photo/2020/10/21/19/43/jack-o-lanterns-5674148_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.activity a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: .4s;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+	  color:#ffffff;
+    animation-name: slideInleft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 2;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    transform: translateX(-150px);
+}
+.activity a:hover {
+  background-color: #e65c55;
+} 
+
+/* Card 1 */
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.cards{
+  width: 25%;
+  height: 5%;
+  display: inline-block;
+  background-color: rgb(5, 5, 5);
+  border-radius: 10px;
+  margin: 85px;
+  box-shadow: 2px 2px 10px red;
+}
+.image img{
+  width: 53%;
+  position: relative;
+  left: 80px;
+  top: 10px;
+  border-radius: 10px;
+}
+.title1{
+  text-align: center;
+  color: red;
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.des p{
+  position: relative;
+  left: 0px;
+  text-align: center;
+  height: 30px;
+  font-family: Moneferrat;
+  font-size: 14px;
+  top: 8px;
+}
+.cards a{
+  margin-top: 60px;
+  margin-bottom: 30px;
+  position: relative;
+  left: 60px;
+  cursor: pointer;
+}
+.cards a:hover{
+   background-color: #fffdfd;
+   color: red;
+   transition: .5s;
+}
+
+/* card 2*/ 
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.cards1{
+  width: 25%;
+  height: 5%;
+  display: inline-block;
+  background-color: rgb(5, 5, 5);
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 2px 2px 10px red;
+}
+.image1 img{
+  width: 60%;
+  position: relative;
+  left: 73px;
+  top: 30px;
+  border-radius: 10px;
+}
+.title2{
+  text-align: center;
+  color: red;
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 45px;
+}
+.des1 p{
+  position: relative;
+  left: 0px;
+  top: 5px;
+  text-align: center;
+  height: 30px;
+  font-family: Moneferrat;
+  font-size: 14px;
+}
+.cards1 a{
+  margin-top: 40px;
+  margin-bottom: 30px;
+  position: relative;
+  left: 70px;
+  cursor: pointer;
+}
+.cards1 a:hover{
+   background-color: #fffdfd;
+   color: red;
+   transition: .5s;
+}
+
+/* card 3 */
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.cards2{
+  width: 25%;
+  height: 5%;
+  display: inline-block;
+  background-color: rgb(5, 5, 5);
+  border-radius: 10px;
+  margin: 78px;
+  box-shadow: 2px 2px 10px red;
+}
+.image2 img{
+  width: 55%;
+  position: relative;
+  left: 80px;
+  top: 10px;
+  border-radius: 10px;
+}
+.title3{
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 20px;
+}
+.des2 p{
+  position: relative;
+  left: 0px;
+  text-align: center;
+  height: 30px;
+  font-family: Moneferrat;
+  font-size: 14px;
+  top: 5px;
+}
+.cards2 a{
+  margin-top: 40px;
+  margin-bottom: 30px;
+  position: relative;
+  left: 50px;
+  cursor: pointer;
+}
+.cards2 a:hover{
+   background-color: #fffdfd;
+   color: red;
+   transition: .5s;
+}
