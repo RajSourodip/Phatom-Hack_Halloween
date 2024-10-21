@@ -40,12 +40,19 @@
                   <li class="nav__item">
                      <a href="#" class="nav__link">Contact Us</a>
                   </li>
+                  <li>
+                      <button id="audio-control" class="nav__audio-control">Pause</button>
+               </li>
                   </ul>
-
+                  
+                 
                   <!--Close Button-->
                   <div class="nav__close" id="nav-close">
                      <i class="ri-close-line"></i>
                   </div>
+                  
+                 <audio id="background-audio" src="assets/audio/song.mp3" autoplay loop></audio>
+                 
                </div>
 
                <!--Toggle Button-->
@@ -54,15 +61,59 @@
                </div>
             </nav>
       </header>
+      <script>
+         document.addEventListener('DOMContentLoaded', (event) => {
+    const audio = document.getElementById('background-audio');
+    const audioControlButton = document.getElementById('audio-control');
+
+    // Ensure audio starts playing automatically and loops
+    audio.play().catch(error => {
+        console.log("Autoplay failed:", error);
+    });
+
+    // Toggle play/pause on button click and update button text
+    audioControlButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play().then(() => {
+                audioControlButton.textContent = 'Pause';
+            }).catch(error => {
+                console.log("Play failed:", error);
+            });
+        } else {
+            audio.pause();
+            audioControlButton.textContent = 'Play';
+        }
+    });
+});
+      </script>
 
 
       <!--==================== MAIN ====================-->
       <main class="main">
          <!--==================== HOME ====================-->
          <section class="home">
-            <audio controls autoplay>
+            <!-- <audio controls autoplay loop>
                <source src="assets/audio/song.mp3" alt="">
-            </audio>
+            </audio> -->
+            <audio id="background-audio" src="assets/audio/song.mp3" loop></audio>
+    <button id="play-button">Play Audio</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let audio = document.getElementById('background-audio');
+            let playButton = document.getElementById('play-button');
+
+            playButton.addEventListener('click', () => {
+                audio.play().catch(error => {
+                    console.log("Autoplay failed:", error);
+                });
+            });
+
+            document.body.addEventListener('click', () => {
+                playButton.click();
+            }, { once: true });
+        });
+    </script>
                <div class="home__container">
                   <img src="assets/img/home-point.png" alt="image" class="home__points">
                   <img src="assets/img/home-shadow.png" alt="image" class="home__shadow">
@@ -86,12 +137,9 @@
                   </p>
                   <a href="#" class="home__button">
                      <img src="assets/img/button.svg" alt="">
-                     <!-- <button id="home__button" onclick="audio.play()"><span>CLICK HERE</span></button>
-                  <script type="text/JavaScript">
-                     const audio = new Audio();
-                     audio.src = "./song.mp3";
-                  </script> -->
-                     <span>CLICK HERE</span> 
+                     <!-- <button id="home__button" onclick="audio.play()"><span>CLICK HERE</span></button> -->
+                     
+                     <span>CLICK HERE!!</span> 
                   </a>
                </div>
          </section>

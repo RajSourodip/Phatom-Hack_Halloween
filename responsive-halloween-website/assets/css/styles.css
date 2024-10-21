@@ -134,8 +134,8 @@ img {
 .nav__list{
   display: flex;
   flex-direction: column;
-  text-align: centre;
-  row-gap: 3rem;
+  text-align: center;
+  row-gap: 1rem;
 }
 
 .nav__link{
@@ -151,6 +151,16 @@ img {
   position: absolute;
   top: 1rem;
   right: 1.5rem;
+}
+.nav__audio-control {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px; /* Adjust as needed */
+  top: 0px;
+  right: 0px;
 }
 
 /* Show menu */
